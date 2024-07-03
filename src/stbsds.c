@@ -6,6 +6,7 @@
 #include <stdint.h>
 
 #include <sds.h>
+#include <stb_ds.h>
 #include <stb_sprintf.h>
 
 struct sprintfcb_ctx {

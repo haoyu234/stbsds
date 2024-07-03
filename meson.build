@@ -18,15 +18,6 @@ stbsds_dep = declare_dependency(
   include_directories: 'include',
 )
 
-test(
-  'tsprintf',
-  executable(
-    'tsprintf',
-    sources: 'tests/tsprintf.cpp',
-    override_options: '-cpp_std=c++11',
-    dependencies: [
-      stbsds_dep,
-      dependency('gtest', main: true),
-    ],
-  ),
-)
+if get_option('tests')
+    subdir('tests')
+endif

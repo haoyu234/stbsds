@@ -17,3 +17,18 @@ TEST(sprintf, S) {
   sdsfree(s);
   sdsfree(s2);
 }
+
+TEST(sprintf, dot2S) {
+  sds s = sdsempty();
+  sds s2 = sdsnewlen("123", 3);
+  s = sdsstbcatprintf(s, "-%.2S-", s2);
+
+  EXPECT_EQ(sdslen(s), 4);
+  EXPECT_EQ(s[0], '-');
+  EXPECT_EQ(s[1], '1');
+  EXPECT_EQ(s[2], '2');
+  EXPECT_EQ(s[3], '-');
+
+  sdsfree(s);
+  sdsfree(s2);
+}
